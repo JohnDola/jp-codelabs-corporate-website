@@ -627,8 +627,8 @@
 		bottom: 40px;
 		z-index: 2;
 		&::after {
+			@include content-with-base-path('/images/shape/case-btn-shape.png');
 			position: absolute;
-			content: url(/images/shape/case-btn-shape.png);
 			right: -20px;
 			top: 0px;
 			z-index: -1;
@@ -637,8 +637,9 @@
 			transition: var(--transition);
 		}
 		&::before {
+			@include content-with-base-path('/images/shape/case-btn-shape.png');
 			position: absolute;
-			content: url(/images/shape/case-btn-shape.png);
+		
 			left: -20px;
 			top: -28px;
 			z-index: -1;

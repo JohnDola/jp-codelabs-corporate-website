@@ -124,3 +124,6 @@
 		}
 	}
 }
+@mixin content-with-base-path($image-path) {
+	content: url($image-path);
+  }
