@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          lfs: true # Ensure Git LFS is used if your tar file is tracked with LFS
+
+      - name: Extract artifact.tar
+        run: |
+          ls -la
+        shell: bash
+
+      - name: Extract artifact.tar
+        run: |
+          tar -xf artifact.tar -C ./extracted  # Extract to ./extracted directory
+        shell: bash
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PAT }}
+          publish_dir: ./extracted # The directory with your extracted content
