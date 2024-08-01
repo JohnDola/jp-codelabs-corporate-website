@@ -20,6 +20,12 @@ jobs:
           ls -la
         shell: bash
 
+      - name: Verify artifact.tar
+        run: |
+          file artifact.tar  # Check the file type
+          ls -la             # List the directory contents for verification
+        shell: bash
+
       - name: Extract artifact.tar
         run: |
           tar -xf artifact.tar -C ./extracted  # Extract to ./extracted directory
