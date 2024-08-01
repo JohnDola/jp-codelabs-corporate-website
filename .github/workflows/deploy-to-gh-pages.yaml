@@ -15,7 +15,11 @@ jobs:
         with:
           lfs: true # Ensure Git LFS is used if your tar file is tracked with LFS
 
-      - name: Extract artifact.tar
+      - name: Fetch LFS Files
+        run: |
+          git lfs pull
+
+      - name: List all files
         run: |
           ls -la
         shell: bash
@@ -24,6 +28,11 @@ jobs:
         run: |
           file artifact.tar  # Check the file type
           ls -la             # List the directory contents for verification
+        shell: bash
+
+      - name: Create extraction directory
+        run: |
+          mkdir -p ./extracted
         shell: bash
 
       - name: Extract artifact.tar
